@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
 <head th:replace="~{fragments :: head}">
 </head>
 <body>
@@ -7,8 +7,8 @@
 <div th:replace="~{fragments :: page-header}"></div>
 
 <div class="container body-content">
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-    <h2 class = "centered">View Jobs By Category</h2>
+    <h1 th:text="${#strings.capitalizeWords(title)?: 'Default Title'}">list view</h1>
+    <h2 class="centered">View Jobs By Category</h2>
 </div>
 
 <table class="centeredTable">
@@ -20,19 +20,25 @@
 
     <tr>
         <td>
-            <li>
-                <a th:href="@{/list/jobs(column='All',value='View All')}">View All</a>
-            </li>
+            <ul>
+                <li>
+                    <a th:href="@{/list/jobs(column='All',value='View All')}">View All</a>
+                </li>
+            </ul>
         </td>
         <td>
-            <li th:each="employer : ${employers}">
-                <a th:href="@{/list/jobs(column=employer,value=${employer.name})}" th:text="${employer.name}"></a>
-            </li>
+            <ul th:each="employer : ${employers}">
+                <li>
+                    <a th:href="@{/list/jobs(column=employer,value=${employer.name})}" th:text="${employer.name}"></a>
+                </li>
+            </ul>
         </td>
         <td>
-            <li th:each="skill : ${skills}">
-                <a th:href="@{/list/jobs(column=skill,value=${skill.name})}" th:text="${skill.name}"></a>
-            </li>
+            <ul th:each="skill : ${skills}">
+                <li>
+                    <a th:href="@{/list/jobs(column=skill,value=${skill.name})}" th:text="${skill.name}"></a>
+                </li>
+            </ul>
         </td>
     </tr>
 </table>

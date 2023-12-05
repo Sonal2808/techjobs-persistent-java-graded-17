@@ -1,15 +1,17 @@
 package org.launchcode.techjobs.persistent.models.data;
 
+import org.launchcode.techjobs.persistent.models.Employer;
 import org.launchcode.techjobs.persistent.models.Job;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface JobRepository extends CrudRepository<Job, Integer> {
-    public List<Job> jobs = new ArrayList<>();
+public interface EmployerRepository extends CrudRepository<Employer, Integer>
 
+{
 
+    static void save(Job newJob) {
+    }
 }

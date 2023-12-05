@@ -73,6 +73,7 @@ public class TestTaskThree extends AbstractTest {
         assertEquals("employer_id", nameMethod.invoke(joinColAnnotation));
     }
 
+
     /*
      * Verifies that Job extends AbstractEntity and has redundant code removed
      * */
@@ -150,29 +151,6 @@ public class TestTaskThree extends AbstractTest {
     /*
      * Verifies that HomeController.displayAddJobForm calls employerRepository.findAll()
      * */
-    // @Test
-    // public void testHomeControllerFetchesEmployers(@Mocked EmployerRepository employerRepository, @Mocked SkillRepository skillRepository) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
-    //     Class homeControllerClass = getClassByName("controllers.HomeController");
-    //     HomeController homeController = new HomeController();
-
-    //     Field employerRepositoryField = homeControllerClass.getDeclaredField("employerRepository");
-    //     employerRepositoryField.setAccessible(true);
-    //     employerRepositoryField.set(homeController, employerRepository);
-
-    //     // not needed for verification, but necessary to make sure calling the controller
-    //     // method doesn't throw a NullPointerException
-    //     Field skillRepositoryField = homeControllerClass.getDeclaredField("skillRepository");
-    //     skillRepositoryField.setAccessible(true);
-    //     skillRepositoryField.set(homeController, skillRepository);
-
-    //     Model model = new ExtendedModelMap();
-
-    //     new Expectations() {{
-    //         employerRepository.findAll();
-    //     }};
-
-    //     homeController.displayAddJobForm(model);
-    // }
 
     /*
      * Tests SQL query for task 3

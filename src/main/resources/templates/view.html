@@ -4,6 +4,10 @@
 
 <body class="container  body-content">
 <h1 th:text="${'Job: ' + job.name}">Default Title</h1>
+<!-- Assuming Job has a 'name' property -->
+<h2 th:text="${job.name}"></h2>
+<!-- Other job details can be displayed similarly -->
+
 
 <nav th:replace="~{fragments :: page-header}"></nav>
 
