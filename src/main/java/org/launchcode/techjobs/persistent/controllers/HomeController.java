@@ -68,26 +68,20 @@ public class HomeController {
         }
 
         // Use the injected SkillRepository to get the skill objects based on the list of skill ids
-        //Iterable<Skill> skillIterable = skillRepository.findAllById(skills);
 
         // Convert Iterable to List
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
         newJob.setSkills(skillObjs);
 
 
-        // Save the job to the database
-        //SkillRepository.save(newJob);
-        // EmployerRepository.save(newJob);
-
-        // Redirect to the home page or another appropriate page
-        jobRepository.save(newJob);
+         jobRepository.save(newJob);
         return "redirect:/";
     }
 
 
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
-        // Implement logic to display job details based on jobId
+
 
         Optional<Job> jobOptional = jobRepository.findById(jobId);
 

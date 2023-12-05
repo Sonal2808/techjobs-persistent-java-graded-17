@@ -16,7 +16,7 @@ public class Job extends AbstractEntity {
     @JoinColumn(name = "skills_id")
     private List<Skill> skills = new ArrayList<>();
     public Job() {
-        // default constructor
+
     }
 
     @Override
