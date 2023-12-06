@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="~{fragments :: head}"></head>
+<head th:replace="~{fragments :: head}"><title></title></head>
 
 <body class="container  body-content">
 <h1 th:text="${'Skill: ' + skill.name}">Default Title</h1>
@@ -16,5 +16,5 @@
             <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
         </li>
     </ul>
-    </p>
+
 </div>

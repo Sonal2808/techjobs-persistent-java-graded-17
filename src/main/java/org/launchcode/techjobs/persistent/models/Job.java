@@ -13,28 +13,24 @@ public class Job extends AbstractEntity {
     private Employer employer;
 
     @ManyToMany
-    @JoinColumn(name = "skills_id")
+    @JoinTable(
+            name = "job_skill",
+            joinColumns = @JoinColumn(name = "job_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id")
+    )
     private List<Skill> skills = new ArrayList<>();
-    public Job() {
 
-    }
-
-    @Override
-    public String toString() {
-        return name;
-
-    }
-
-    @Override
-    public void setSkills(List<Skill> skills) {
-
-    }
+    // Constructors, toString, and other methods
 
     // Constructor with employer and skills
     public Job(Employer employer, List<Skill> skills) {
         super();
         this.employer = employer;
         this.skills = skills;
+    }
+
+    public Job() {
+        
     }
 
     // Getters and setters
@@ -50,8 +46,12 @@ public class Job extends AbstractEntity {
     public List<Skill> getSkills() {
         return skills;
     }
-    public void addSkill(Skill skills){
-        this.skills.add(skills);
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 
+    public void addSkill(Skill skill) {
+        this.skills.add(skill);
+    }
 }

@@ -28,6 +28,9 @@ public class HomeController {
     private JobRepository jobRepository;
     private List<org.launchcode.techjobs.persistent.models.Skill> Skill;
 
+    public HomeController() {
+    }
+
     @RequestMapping("/index")
     public String index(Model model) {
         model.addAttribute("title", "MyJobs");
@@ -90,7 +93,7 @@ public class HomeController {
             model.addAttribute("job", job);
             return "view";
         } else {
-            return "redirect:/error";
+            return "redirect:/";
 
         }
     }}
